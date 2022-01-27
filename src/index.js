@@ -10,7 +10,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-app.use('/api',authRoutes)
+app.use('/',authRoutes)
 
 
 
