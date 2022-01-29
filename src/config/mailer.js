@@ -5,8 +5,8 @@
     const mailgun = require("mailgun-js");
 
 
-    const API_KEY = '2a9b9faa29f3b2980deddb4e7c8b8880-054ba6b6-5905d850';
-    const DOMAIN = 'sandbox06638c2430c6407db2d7e8b4759d1b91.mailgun.org';
+    const API_KEY = '';
+    const DOMAIN = '';
     
     const mg = mailgun({apiKey: API_KEY, domain: DOMAIN});
 
