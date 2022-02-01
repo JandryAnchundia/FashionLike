@@ -1,0 +1,55 @@
+.contLogin {
+    display: flex;
+    flex-direction: row;
+    font-family: sofia-pro, sans-serif;
+}
+
+.leftSide {
+    width: 50%;
+}
+
+h1 {
+   
+    font-weight: 700;
+    font-style: normal;
+    font-size: 54px;
+}
+
+.btnCont {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn1, .btn2 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 253px;
+    height: 52px;
+    background-color: white;
+    border: 3px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 9px;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 20px;
+}
+
+.rightSide {
+    background: linear-gradient(204.52deg, #7E62EF -7.35%, rgba(43, 235, 166, 0.62) 164.58%);
+    width: 50%;
+    color: white;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 74px;
+    text-align: center;
+}
+
+.rightSide p {
+    font-size: 24px;
+    line-height: 37px;
+    text-align: center;
+}
