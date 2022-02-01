@@ -1,5 +1,5 @@
 import User from '../models/User';
-
+import bcrypt from 'bcryptjs';
 
 export const registro = async(req,res) => {
     const {nombre,apellido,fecha_de_nacimiento,email,password} = req.body
