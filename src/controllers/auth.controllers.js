@@ -1,5 +1,6 @@
 import User from '../models/User';
 
+
 export const registro = async(req,res) => {
     const {nombre,apellido,fecha_de_nacimiento,email,password} = req.body
 
@@ -10,11 +11,12 @@ export const registro = async(req,res) => {
         email,
         password
     })
+    
     user.password = await user.encryptPassword(user.password)
     await user.save()
     res.status(200).json({
         ok:true,
-        message:'user create success',
+        message:'user create success,please check your email for validaction your email',
         user
     })
 
