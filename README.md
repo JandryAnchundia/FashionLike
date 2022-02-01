@@ -1,16 +1,17 @@
 # FashionLike
 PROYECTO: FASHION LIKE
 Red social para indumentaria de moda.
+
 #idea1
-Descripción del proyecto:
+## Descripción del proyecto:
 Es una nueva red social donde se van publicando diferentes estilos de indumentaria y
 los usuarios pueden votar si les gusta o no el diseño.
-Objetivo:
+## Objetivo:
 Conocerl el comportamiento de elección de los usuarios para la creación de futuros
 diseños de indumentaria de la compañía.
 La información es valiosa por lo que debe ser fácil de conseguir y segura en su
 persistencia en la plataforma.
-Requisitos:
+## Requisitos:
 -Los usuarios deben poder loguearse con email y contraseña.
 -El usuario debe poder ver todos los posteos en orden cronológico empezando desde el
 más reciente.
@@ -20,7 +21,7 @@ de haber elegido una opción.
 -Debe haber un usuario administrador para ingresar a un panel de control.
 -En el panel de control debo poder crear, editar y eliminar posteos.
 -Debo poder ver el detalle de cada posteo con sus estadísticas.
-Páginas a desarrollar:
+## Páginas a desarrollar:
 -Login
 -Registro
 -Feed de posteos
