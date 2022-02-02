@@ -1,0 +1,50 @@
+.loginForm {
+    width: 600px;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 54px;
+}
+
+.submit {
+    background-color: #C4C4C4;
+    width: 206px;
+    height: 69px;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+}
+
+.btn-submit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.btn-submit p {
+    font-size: 18px;
+}
+
+.checkbox {
+    margin-top: 100px;
+}
+
+.forgot {
+    color: #7E62EF;
+    font-size: 16px;
+}
+
+.register {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.violet {
+    color: #7E62EF;
+    padding-left: 5px;
+    font-weight: bold;
+}

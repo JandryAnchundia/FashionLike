@@ -2,18 +2,21 @@
     display: flex;
     flex-direction: row;
     font-family: sofia-pro, sans-serif;
+  
 }
 
 .leftSide {
     width: 50%;
+    text-align: left;
+    padding: 100px;
 }
 
-h1 {
-   
-    font-weight: 700;
-    font-style: normal;
-    font-size: 54px;
+.logo {
+    width: 162px;
+    height: 83px;
+    margin-bottom: 30px;
 }
+
 
 .btnCont {
     display: flex;
@@ -35,10 +38,26 @@ h1 {
     margin: 20px;
 }
 
+.footer {
+    color:#999999;
+    font-size: 16px;
+    position: absolute;
+    bottom: 5%;
+    
+}
+
 .rightSide {
     background: linear-gradient(204.52deg, #7E62EF -7.35%, rgba(43, 235, 166, 0.62) 164.58%);
     width: 50%;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subtitle {
+    position: absolute;
+    bottom: 100px;
 }
 
 h2 {
