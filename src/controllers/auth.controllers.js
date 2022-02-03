@@ -1,8 +1,10 @@
 import User from "../models/User";
 import bcrypt from "bcryptjs";
 import { sendMail, getTemplate } from "../config/mailer.config";
+import { getToken , getTokenData} from "../config/jwt.config"
 
 export const registro = async (req, res) => {
+
   const { nombre, apellido, fecha_de_nacimiento, email, password } = req.body;
 
   const user = new User({
@@ -12,6 +14,11 @@ export const registro = async (req, res) => {
     email,
     password,
   });
+
+  const emailDb = await User.findOne({user})
+  if(emailDb){
+    return res.status(404).json({ok:false,message:'email existed'})
+  }
 
   user.password = await user.encryptPassword(user.password);
 
@@ -27,7 +34,7 @@ export const registro = async (req, res) => {
     message:
       "user create success,please check your email for validaction your email",
     user,
-  });
+  })
 };
 
 export const login = function (passport) {
