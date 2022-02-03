@@ -21,3 +21,10 @@ export const sendMail = (email, subject, html) => {
     });
 };
 
+export const getTemplate = (name,token)=>{
+    return `
+      <h1>Hola Bienvenido ${name}!</h1>
+      <p>para confirmar tu correo, ingresa al siguiente link</p>
+      <a href=http://localhost:3000/api/verify/${token}>ConfirmarCuenta</a>
+    `
+  }
