@@ -1,5 +1,6 @@
 import User from '../models/User';
 import bcrypt from 'bcryptjs';
+import { sendMail } from '../config/mailer.config';
 
 export const registro = async(req,res) => {
     const {nombre,apellido,fecha_de_nacimiento,email,password} = req.body
@@ -13,6 +14,7 @@ export const registro = async(req,res) => {
     })
     
     user.password = await user.encryptPassword(user.password)
+    await sendMail(user.email,'Mail de Prueba',`<h1>prueba</H1>`)
     await user.save()
     res.status(200).json({
         ok:true,
