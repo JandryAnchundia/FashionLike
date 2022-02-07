@@ -1,9 +1,42 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import './LoginForm.css'
-import { InputGroup } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react'
 
 const LoginForm = () => {
+
+    const initialValues = { username: "", password: ""}
+    const [formValues, setFormValues] = useState(initialValues);
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+
+    const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormValues({...formValues, [name]: value});
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormErrors(validate(formValues));
+        setIsSubmit(true);
+
+    }
+
+    useEffect(() => {
+        if(Object.keys(formErrors).length === 0 && isSubmit){
+           console.log(formValues);
+        }
+    }, [formErrors]);
+
+    const validate = (values) => {
+        const errors = {}
+        const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+        if (!regex.test(values.username)){
+            errors.username = "¡Ups! La dirección de E-Mail ingresada es inválida.";
+        }
+        if (!values.password) {
+            errors.password = "¡Ups! La contraseña ingresada es incorrecta."
+        }
+        return errors;
+    };
 
 
     return (
@@ -14,40 +47,48 @@ const LoginForm = () => {
                     <button className="btn2"> <img src="/assets/meta.png" alt="meta" /> Ingresar con Meta </button>
                 </div>
                 <img src="/assets/line.png" alt="line"/> 
-         <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>E-Mail o nombre de usuario </Form.Label>
-                    <InputGroup> 
-                    <InputGroup.Text> <img src="/assets/person.png" alt="user"/> </InputGroup.Text>
-                    <Form.Control type="email"  />
-                    </InputGroup>
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Contraseña</Form.Label>
-                    <InputGroup> 
-                    <InputGroup.Text> <img src="/assets/key.png" alt="user"/> </InputGroup.Text>
-                    <Form.Control type="password"/> <img src="/assets/visibility.png" alt="visibility"/>
-                    </InputGroup>
-                    <Form.Text className="forgot">
+         <form onSubmit={handleSubmit} className='form'>
+         
+                    <label>Email o usuario   </label>
+                    <input 
+                        className="input"
+                        type="email" 
+                        name="username"
+                        value={formValues.username} 
+                        onChange={handleChange}
+                        /> 
+
+                    <label>Contraseña </label>
+                    <div className="password">
+                    <input
+                        className="input"
+                        type="password" 
+                        name="password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                         /> 
+                    <img src="/assets/visibility.png" alt="visibility"/>
+                    </div>
+                    
+                   
+                    <p className="forgot">
                     ¡Olvidé mi contraseña!
-                    </Form.Text>
-                </Form.Group>
+                    </p>
 
-                <Form.Group className="mb-3 checkbox" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Recordarme" />
-                </Form.Group>
+                <p className='errorMessage'> {formErrors.username} </p>
+                <p className='errorMessage'> {formErrors.password} </p>
 
-            <Form.Group className="btn-submit"> 
-                <Button variant="custom" className="submit" type="submit" disabled>
-                    Ingresar
-                </Button>
-                <div className="register"> 
-                <p> ¿No tenés una cuenta? </p> <p className="violet"> Registrate </p>
+                <div className="rememberMe"> 
+                <input type="checkbox" value="recordarme"></input> <label> Recordarme</label>
                 </div>
-
-            </Form.Group>
-         </Form>
+                <div className='LabelLogin'>
+                    <button type='submit' className='btn-submit'> Ingresar </button>
+                    <div className="register"> 
+                    <p> ¿No tenés una cuenta? </p> <p className="violet"> Registrate </p>
+                    </div>
+                </div>
+         </form>
         </div>
     )
 }
